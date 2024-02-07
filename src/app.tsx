@@ -3,21 +3,35 @@ import logo from './assets/logo-nlw-expert.svg'
 import { NewNoteCard } from './components/new-note-card'
 import { NoteCard } from './components/note-card'
 
+interface Note {
+  id: string
+  date: Date
+  content: string
+}
 
 export function App() {
-  const [notes, setNotes] = useState([
-    { id: 1, date: new Date(), content: "Hello World" },
-    { id: 2, date: new Date(), content: "Hello World" },
-  ])
+  const [notes, setNotes] = useState<Note[]>(() => {
+    const notesOnStorage = localStorage.getItem('notes');
+
+    if (notesOnStorage) {
+      return JSON.parse(notesOnStorage)
+    }
+
+    return []
+  })
 
   function onNoteCreated(content: string) {
     const newNote = {
-      id: Math.random(),
+      id: crypto.randomUUID(),
       date: new Date(),
       content,
     }
 
-    setNotes([newNote, ...notes])
+    const notesArray = [newNote, ...notes]
+
+    setNotes(notesArray)
+
+    localStorage.setItem('notes', JSON.stringify(notesArray))
   }
 
   return (
