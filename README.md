@@ -35,13 +35,13 @@ Siga abaixo os seguinte passos para execução do código:
 1. Clone o repositório utilizando:
 
 ```bash
-  git clone https://github.com/BrenoPorfirio/ExpertNotes.git
+  git clone https://github.com/BrenoPorfirio/NLW-ExpertNotes.git
 ```
 
 2. Agora, vá para o diretório na sua IDE utilizando:
 
 ```bash
-  cd nlw-expert-notes
+  cd NLW-ExpertNotes
 ```
 
 3. Instale todas as dependências necessárias utilizando:
